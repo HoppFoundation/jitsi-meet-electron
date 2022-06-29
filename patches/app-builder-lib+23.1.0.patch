@@ -1,0 +1,12 @@
+diff --git a/node_modules/app-builder-lib/out/macPackager.js b/node_modules/app-builder-lib/out/macPackager.js
+index 9f4db53..ee79b13 100644
+--- a/node_modules/app-builder-lib/out/macPackager.js
++++ b/node_modules/app-builder-lib/out/macPackager.js
+@@ -393,6 +393,6 @@ function getCertificateTypes(isMas, isDevelopment) {
+     if (isDevelopment) {
+         return isMas ? ["Mac Developer", "Apple Development"] : ["Developer ID Application"];
+     }
+-    return isMas ? ["Apple Distribution"] : ["Developer ID Application"];
++    return isMas ? ["Apple Distribution", "3rd Party Mac Developer Application"] : ["Developer ID Application"];
+ }
+ //# sourceMappingURL=macPackager.js.map
