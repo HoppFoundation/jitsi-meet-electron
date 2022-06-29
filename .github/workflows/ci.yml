@@ -21,8 +21,8 @@ jobs:
         node-version: '16'
     - name: Install Snapcraft
       uses: samuelmeuli/action-snapcraft@v1
-      with:
-        snapcraft_token: ${{ secrets.snapcraft_token }}
+      env:
+        SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.snapcraft_token }}
     - name: Build it
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -30,6 +30,8 @@ jobs:
         npm ci
         npm run dist
     - name: Publish to Snap Store
+      env:
+        SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.snapcraft_token }}
       run: snapcraft upload --release edge dist/*.snap
     - uses: actions/upload-artifact@v2
       with:
